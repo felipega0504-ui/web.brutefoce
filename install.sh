@@ -4,12 +4,17 @@ echo ""
 echo "Web Vulnerability Scanner - Mini Audit Script"
 echo ""
 
+# Si no se pasa argumento, solicitarlo por pantalla
 if [ $# -lt 1 ]; then
-    echo "Uso: $0 <url>"
-    exit 1
+    echo -n "Web URL: "
+    read URL
+    if [ -z "$URL" ]; then
+        echo "Debes ingresar una URL para analizar."
+        exit 1
+    fi
+else
+    URL=$1
 fi
-
-URL=$1
 
 echo "Analizando: $URL"
 echo ""
